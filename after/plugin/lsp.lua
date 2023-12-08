@@ -4,7 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
@@ -91,7 +90,7 @@ lsp.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-      ['null-ls'] = {'go', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+      ['null-ls'] = {'go', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'yaml'},
   }
 })
 lsp.setup()
