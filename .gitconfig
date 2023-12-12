@@ -1,0 +1,9 @@
+[alias]
+	s = status
+[user]
+	name = Pascal Sochacki
+	email = pascal@sochacki.dev
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
