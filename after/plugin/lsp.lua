@@ -41,11 +41,44 @@ lsp.set_preferences({
 
 
 local ls = require("luasnip")
---require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").load()
+
+local snip = ls.snippet
+local func = ls.function_node
+
+local same = function (index)
+    return func(function (arg)
+       return arg[1]
+    end, { index })
+end
+
+ls.add_snippets(nil, {
+    go = {
+        snip({
+            trig = "ennn",
+            namr = "error not nil",
+            dscr = "check if error is not nil",
+        }, {
+            ls.insert_node(1, { "val" }),
+            ls.text_node(", "),
+            ls.insert_node(2, { "err" }),
+            ls.text_node(" := "),
+            ls.insert_node(3, { "f" }),
+            ls.text_node("("),
+            ls.insert_node(4),
+            ls.text_node(")"),
+            ls.text_node({"", "if "}),
+            same(2),
+            ls.text_node(" != nil {", "\treturn ")
+        }),
+    }
+})
 
 ls.config.set_config({
+    history = true,
     updateevents = "TextChanged,TextChangedI"
 })
+
 
 vim.keymap.set({"i", "s"}, "<c-k>", function ()
     if ls.expand_or_jumpable() then

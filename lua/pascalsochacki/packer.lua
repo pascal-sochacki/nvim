@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.2',
+	  'nvim-telescope/telescope.nvim', tag = '0.1.x',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
           {'mfussenegger/nvim-lint'},
           {'towolf/vim-helm'},
-          {'jose-elias-alvarez/null-ls.nvim'}
+          {'nvimtools/none-ls.nvim'}
 	  }
 
   }
